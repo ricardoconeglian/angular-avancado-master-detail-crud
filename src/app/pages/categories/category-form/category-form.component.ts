@@ -1,14 +1,15 @@
 import { CategoryService } from './../shared/category.service';
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Category } from '../shared/category.model';
 
 import { switchMap } from 'rxjs/operators';
 
-import toastr from 'toastr';
+//import toastr from 'toastr';
 
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-form',
@@ -18,7 +19,7 @@ import toastr from 'toastr';
 export class CategoryFormComponent implements OnInit, AfterContentChecked {
 
   currentAction: string | undefined;
-  categoryForm: FormGroup | undefined;
+  categoryForm: FormGroup | any;
   pageTitle: string | undefined;
   serverErrorMessages: string[] = []
   submittingForm: boolean = false;
@@ -63,7 +64,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   private loadCategory(){
     if(this.currentAction == "edit"){
       this.route.paramMap.pipe(
-        switchMap(params => this.categoryService.getById(+params.get("id")))
+        switchMap((params: ParamMap|any) => this.categoryService.getById(+params.get("id")))
       )
       .subscribe(
         (category) => {
