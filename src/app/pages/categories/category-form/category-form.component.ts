@@ -21,7 +21,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   currentAction: string | undefined;
   categoryForm: FormGroup | any;
   pageTitle: string | undefined;
-  serverErrorMessages: string[] = []
+  serverErrorMessages: string[] | undefined
   submittingForm: boolean = false;
   category: Category = new Category();
 
@@ -135,5 +135,5 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
 
   }
 
-  
+
 }
