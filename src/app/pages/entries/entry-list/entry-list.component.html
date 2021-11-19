@@ -1,0 +1,50 @@
+<nav class="navbar navbar-light bg-light">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Lançamentos</li>
+  </ol>
+</nav>
+
+<div class="row div-title">
+  <div class="col-md">
+    <h2 class="title">
+      <span class="title-span">Lançamentos</span>
+    </h2>
+  </div>
+
+  <div class="col-md">
+    <a class="btn btn-success btn-nova-categoria" routerLink="new">+ Novo Lançamento</a>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>Lançamento</th>
+      <th>Categoria</th>
+      <th>Valor R$</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of entries">
+      <td>
+        <strong>{{entry.name}}</strong><br>
+        <small class="text-success">{{entry.date}}</small><br>
+        <small ngIf="entry.description">{{entry.description}}</small>
+      </td>
+      <td>
+        {{entry.category.name}}
+      </td>
+      <td class="text-right">
+        <strong [class.text-success]="entry.type == 'revenue'" [class.text-danger]="entry.type == 'expense'">
+          {{entry.amount}}
+        </strong>
+      </td>
+      <td>
+        <button [routerLink]="[entry.id, 'edit']" class="btn btn-outline-info btn-sm">Editar</button>
+        <button (click)="deleteEntry(entry)" class="btn btn-outline-danger btn-sm">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

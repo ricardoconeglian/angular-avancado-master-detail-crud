@@ -1,0 +1,35 @@
+nav{
+  margin-bottom: 5px;
+}
+
+.btn-nova-categoria{
+  float: right;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.div-title{
+  margin-bottom: 15px;
+}
+
+.title{
+  border-left: 1px solid #ccc;
+  padding-left: 2px;
+  margin-top: 10px;
+}
+
+.title-span{
+  margin-left: 8px;
+}
+
+
+.btn-outline-info{
+  margin-right: 10px;
+}
+.btn-outline-info:hover{
+  color: white;
+
+
+}
+
+

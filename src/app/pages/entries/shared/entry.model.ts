@@ -14,7 +14,7 @@ export class Entry{
   ){}
 
   static types = {
-    expansive: 'Despesa',
+    expense: 'Despesa',
     revenue: 'Receita'
   }
 
