@@ -10,13 +10,15 @@ import { EntryService } from '../shared/entry.service';
 })
 export class EntryListComponent implements OnInit {
 
+  entries: Entry[] = []
+
   constructor(private entryService: EntryService) { }
 
-  entries: Entry[] = []
+
 
   ngOnInit(): void {
     this.entryService.getAll().subscribe(
-      entries => this.entries = entries,
+      entries => this.entries = entries.sort((a,b) => b.id - a.id),
       error => alert('Erro ao carregar a lista')
       )
   }
