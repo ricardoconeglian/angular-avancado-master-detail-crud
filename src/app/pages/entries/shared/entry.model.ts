@@ -2,6 +2,8 @@ import {BaseResourceModel} from '../../../shared/models/base-resource.model'
 import { Category } from "../../categories/shared/category.model";
 
 export class Entry extends BaseResourceModel{
+  static Entry: Entry;
+ 
   constructor(
     public id?: number,
     public name?: string,
@@ -19,6 +21,10 @@ export class Entry extends BaseResourceModel{
   static types = {
     expense: 'Despesa',
     revenue: 'Receita'
+  }
+
+  static fromJson(jsonData: any): Entry{
+    return Object.assign(new Entry(), jsonData)
   }
 
   get paidText(): string {
