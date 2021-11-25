@@ -1,5 +1,5 @@
 
-import {OnInit, AfterContentChecked, Injector } from '@angular/core';
+import {OnInit, AfterContentChecked, Injector, Component, Directive } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { switchMap } from 'rxjs/operators';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
+@Directive()
 export abstract class BaseResourceFormComponent<T extends BaseResourceModel> implements OnInit, AfterContentChecked {
 
   currentAction: string | undefined;
@@ -22,12 +23,12 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   protected route: ActivatedRoute;
   protected router: Router;
   protected formBuilder: FormBuilder;
-
+  protected toastr: ToastrService;
 
   constructor(
     protected injector: Injector,
     protected resourceService:BaseResourceService<T>,
-    protected toastr: ToastrService,
+    //protected toastr: ToastrService,
     public resource: T,
     protected jsonDataToResourceFn: (jasonData:any) => T,
   ) {
@@ -86,7 +87,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     if(this.currentAction == 'new')
       this.pageTitle = this.creationPageTitle();
     else{
-      const categoryName = this.editionPageTitle()
+      this.pageTitle = this.editionPageTitle()
     }
   }
 
