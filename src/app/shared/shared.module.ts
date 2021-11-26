@@ -20,7 +20,8 @@ import { RouterModule } from '@angular/router';
     //shared modules
     CommonModule,
     ReactiveFormsModule,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    RouterModule
   ]
 })
 export class SharedModule { }

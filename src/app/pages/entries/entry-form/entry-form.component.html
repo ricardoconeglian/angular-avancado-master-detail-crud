@@ -1,10 +1,9 @@
-<nav class="navbar navbar-light bg-light">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item" aria-current="page"><a routerLink="/">Home</a></li>
-    <li class="breadcrumb-item" aria-current="page"><a routerLink="/entries">Lançamento</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{pageTitle}}</li>
-  </ol>
-</nav>
+<app-bread-crumb
+  [items]="[{text: 'Lançamentos', link:'/entries'}, {text: pageTitle}]">
+
+</app-bread-crumb>
+
+
 
 <div class="row div-title">
   <div class="col-md">
