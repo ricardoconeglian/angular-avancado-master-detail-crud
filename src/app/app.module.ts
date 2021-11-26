@@ -3,6 +3,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {CoreModule} from './core/core.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
   imports: [
     AppRoutingModule,
     ToastrModule.forRoot(),
-    CoreModule
+    CoreModule,
+    RouterModule
 
 
   ],

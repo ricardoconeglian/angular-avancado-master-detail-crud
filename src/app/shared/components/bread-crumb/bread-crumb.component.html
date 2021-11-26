@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page">
+      <a routerLink="/">Home</a>
+    </li>
+
+    <li *ngFor="let item of items" class="breadcrumb-item" [class.active]="IsTheLastItem(item)" >
+      <span *ngIf="IsTheLastItem(item)">{{item.text}}</span>
+      <a *ngIf="!IsTheLastItem(item)" [routerLink]="item.link">
+        {{item.text}}
+      </a>
+    </li>
+
+  </ol>
+</nav>
