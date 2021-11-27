@@ -3,19 +3,15 @@
 
 </app-bread-crumb>
 
+<app-page-header
+
+  [page-title]="pageTitle"
+  button-text="<< Voltar"
+  button-link="/entries"
+  button-class="btn-light"
+></app-page-header>
 
 
-<div class="row div-title">
-  <div class="col-md">
-    <h2 class="title">
-      <span class="title-span">{{pageTitle}}</span>
-    </h2>
-  </div>
-
-  <div class="col-md">
-    <a class="btn btn-light btn-voltar" routerLink="/entries"> << Voltar</a>
-  </div>
-</div>
 
 <form [formGroup] = "resourceForm" (submit)="submitForm()">
 
