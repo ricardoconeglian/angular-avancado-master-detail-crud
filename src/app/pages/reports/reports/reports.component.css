@@ -1,0 +1,26 @@
+.form-row {
+  display: flex;
+}
+
+.margin{
+  margin: 10px 10px 10px 10px;
+
+}
+
+.btn-right{
+  margin: 15px 10px 10px 0px;
+  float: right;
+}
+
+.margin-top{
+  margin-top: 10px;
+}
+
+.alinhamento{
+  display: flex;
+}
+
+.margin{
+  margin-left: 5px;
+  margin-right: 5px;
+}
